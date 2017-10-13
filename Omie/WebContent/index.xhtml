@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pf="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="./css/style.css" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<h:form id="searchForm">
+		<h:panelGrid columns="2" styleClass="fields">
+			<c:facet name="header">
+				<div align="left">
+					<h:outputText value="&#xf0c9;" styleClass="icons" />
+					<h:outputText value="Busca" styleClass="outputText" />
+				</div>
+			</c:facet>
+			<pf:calendar id="dataDe" value="#{boletoBean.dataDe}"
+				p:placeholder="Data de" styleClass="inputText" mask="true"
+				pattern="dd/MM/yyyy" />
+			<pf:calendar id="dataAte" p:placeholder="Data até"
+				value="#{boletoBean.dataAte}" styleClass="inputText" />
+			<h:inputText id="codTitulo" p:placeholder="Código título"
+				value="#{boletoBean.codTitulo}" styleClass="inputText" />
+			<h:inputText id="codIntegracaoTitulo"
+				p:placeholder="Código integração título"
+				value="#{boletoBean.codIntegracaoTitulo}" styleClass="inputText" />
+			<h:inputText id="nossoNumero" p:placeholder="Nosso número"
+				value="#{boletoBean.nossoNumero}" styleClass="inputText" />
+			<h:inputText id="numero" p:placeholder="Número"
+				value="#{boletoBean.numero}" styleClass="inputText" />
+			<c:facet name="footer">
+				<h:commandButton id="search" value="Pesquisar"
+					styleClass="commandButton" action="#{boletoBean.search}">
+					<c:ajax render="boletos" execute="@form" />
+				</h:commandButton>
+				<h:commandButton id="today" value="Hoje"
+					styleClass="commandButtonRed" action="#{boletoBean.today}">
+					<c:ajax render="boletos" execute="@form" />
+				</h:commandButton>
+			</c:facet>
+		</h:panelGrid>
+	</h:form>
+	<h:form id="resultForm">
+		<h:dataTable id="boletos" value="#{boletoBean.boletos}" var="boleto"
+			styleClass="dataTable" cellpadding="0" cellspacing="0">
+			<c:facet name="header">
+				<div align="left" class="dataTableHeader">
+					<div>
+						<h:outputText value="Resultados" />
+						<div align="right">
+							<h:commandButton value="Gerar boletos" />
+						</div>
+					</div>
+				</div>
+			</c:facet>
+			<h:column headerClass="colSelected">
+				<c:facet name="header">
+					<div class="columnHeader" align="left">
+						<h:outputLabel for="selected" />
+						<h:outputText value="Selecione" />
+					</div>
+				</c:facet>
+				<div class="checkboxContent">
+					<h:selectBooleanCheckbox id="selected" value="#{boleto.selected}" />
+					<h:outputLabel for="selected" />
+				</div>
+			</h:column>
+			<h:column headerClass="colNome">
+				<c:facet name="header">
+					<div class="columnHeader" align="left">
+						<h:outputText value="Nome" />
+					</div>
+				</c:facet>
+				<div class="columnContent">
+					<h:outputText value="#{boleto.boleto.dadosPagador.nome}" />
+				</div>
+			</h:column>
+			<h:column headerClass="colValor">
+				<c:facet name="header">
+					<div class="columnHeader" align="left">
+						<h:outputText value="Valor" />
+					</div>
+				</c:facet>
+				<div class="columnContent">
+					<h:outputText value="#{boleto.boleto.valorDoc}">
+						<c:convertNumber pattern="#0.00" currencySymbol="R$"
+							type="currency" />
+					</h:outputText>
+				</div>
+			</h:column>
+			<c:facet name="footer">
+				<div align="right" class="dataTableFooter">
+					<h:outputText
+						value="#{boletoBean.currentPage} / #{boletoBean.totalPages}" />
+					<span class="arrow"> <h:commandButton id="previousPage"
+							styleClass="arrow" actionListener="#{boletoBean.previousPage}"
+							value="&#xf053;">
+							<c:ajax render="boletos" execute="searchForm resultForm" />
+						</h:commandButton>
+					</span> <span class="arrow"> <h:commandButton id="nextPage"
+							styleClass="arrow" actionListener="#{boletoBean.nextPage}"
+							value="&#xf054;">
+							<c:ajax render="boletos" execute="searchForm resultForm" />
+						</h:commandButton>
+					</span>
+				</div>
+			</c:facet>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

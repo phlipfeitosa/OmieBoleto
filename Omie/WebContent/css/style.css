@@ -1,0 +1,219 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: Font Awesome;
+	src: url("../font/fontawesome-webfont.ttf");
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url("../font/Roboto-Regular.ttf");
+}
+
+@font-face {
+	font-family: Roboto Thin;
+	src: url("../font/Roboto-Thin.ttf");
+}
+
+@font-face {
+	font-family: Roboto Bold;
+	src: url("../font/Roboto-Bold.ttf");
+}
+
+body {
+	background-color: rgba(25, 188, 157, 1.0);
+}
+
+//
+.inputText { //
+	border-style: none; //
+	padding-left: 15px; //
+	padding-right: 15px; //
+	padding-top: 10px; //
+	padding-bottom: 10px; //
+	font-family: Roboto Thin; //
+	font-size: 16px; //
+	margin: 20px;
+	//
+}
+
+input[type="text"] {
+	border-style: none;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: Roboto Thin;
+	font-size: 16px;
+	margin: 20px;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"]+label {
+	background: url("png/chk.png");
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	padding: 0 0 0 0px;
+}
+
+input[type="checkbox"]:checked+label {
+	background-image: url("png/chk-sel.png");
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	padding: 0 0 0 0px;
+}
+
+.checkboxContent {
+	background-color: rgba(236, 240, 241, 1.0);
+	font-family: Roboto;
+	font-size: 14px;
+	color: rgba(126, 140, 141, 1.0);
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(126, 140, 141, 1.0);
+}
+
+.commandButton {
+	border-style: none;
+	background-color: rgba(241, 197, 14, 1.0);
+	color: rgba(236, 240, 241, 1.0);
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	margin: 20px;
+}
+
+.commandButton:hover {
+	background-color: rgba(243, 156, 17, 1.0);
+}
+
+.commandButtonRed {
+	border-style: none;
+	background-color: rgba(232, 76, 61, 1.0);
+	color: rgba(236, 240, 241, 1.0);
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	margin: 20px;
+}
+
+.commandButtonRed:hover {
+	background-color: rgba(193, 57, 45, 1.0);
+}
+
+.fields {
+	background-color: rgba(23, 160, 134, 1.0);
+	border-top-style: solid;
+	border-top-width: 3px;
+	border-top-color: rgba(241, 197, 14, 1.0);
+	margin-bottom: 15px;
+}
+
+.outputText {
+	font-family: Roboto;
+	font-size: 16px;
+	color: rgba(236, 240, 241, 1.0);
+}
+
+.inputIcon {
+	font-family: Font Awesome;
+}
+
+.dataTable {
+	background-color: rgba(23, 160, 134, 1.0);
+	border-top-style: solid;
+	border-top-width: 3px;
+	border-top-color: rgba(241, 197, 14, 1.0);
+	width: 100%;
+}
+
+.dataTableHeader {
+	font-family: Roboto;
+	font-size: 16px;
+	color: rgba(236, 240, 241, 1.0);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 16px;
+	color: rgba(236, 240, 241, 1.0);
+}
+
+.columnHeader {
+	background-color: rgba(126, 140, 141, 1.0);
+	font-family: Roboto;
+	font-size: 16px;
+	color: rgba(236, 240, 241, 1.0);
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.columnContent {
+	background-color: rgba(236, 240, 241, 1.0);
+	font-family: Roboto;
+	font-size: 14px;
+	color: rgba(126, 140, 141, 1.0);
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(126, 140, 141, 1.0);
+}
+
+.dataTableFooter {
+	background-color: rgba(236, 240, 241, 1.0);
+	font-family: Roboto;
+	font-size: 14px;
+	color: rgba(126, 140, 141, 1.0);
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.arrow {
+	font-family: Font Awesome;
+	padding: 10px;
+}
+
+.colSelected {
+	width: 10%;
+}
+
+.colNome {
+	width: 80%;
+}
+
+.colValor {
+	width: 10%;
+}
+
+.tableButtons {
+	text-decoration: none;
+	color: rgba(126, 140, 141, 1.0);
+}
+
+.icons {
+	font-family: Font Awesome;
+	font-size: 16px;
+	color: rgba(236, 240, 241, 1.0);
+	margin-left: 20px;
+	margin-right: 10px;
+}
